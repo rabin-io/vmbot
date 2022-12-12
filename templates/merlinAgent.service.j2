@@ -4,9 +4,9 @@ Requires=network.target
 After=network.target
 
 [Service]
-Type=forking
+Type=simple
 {# #EnvironmentFile=/etc/sysconfig/... #}
-ExecStart=/usr/local/bin/merlinAgent-Linux-x64
+ExecStart=/usr/local/bin/merlinAgent-Linux-x64 -url "http://10.74.77.131:5555" -proto http -psk merlin -v
 {# ExecStop={{teamcity.installation_path}}/bin/teamcity-server.sh stop #}
 User=root
 {# PIDFile={{teamcity.installation_path}}/teamcity.pid #}
