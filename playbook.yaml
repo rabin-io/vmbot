@@ -1,0 +1,16 @@
+---
+- name: Add the VM to C&C
+  hosts: localhost
+  vars:
+    download_host: http://cnv-qe-server.bm-mega.ibmc-upi.cnv-qe.rhood.us
+    linux_agent: merlinAgent-Linux-x64
+  tasks:
+
+    - name: Download the client
+      ansible.builtin.get_url:
+        url: "{{ download_host }}/vbot/linux/merlinAgent-Linux-x64"
+        dest: /usr/local/bin/merlinAgent-Linux-x64
+        mode: 0755
+        owner: root
+        group: root
+
